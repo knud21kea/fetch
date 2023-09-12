@@ -142,7 +142,7 @@
         }
 
         function waitForKeyPress() {
-            return new Promise((resolve) => {
+            /* return new Promise((resolve) => {
                 document.addEventListener('keydown', function (event) {
                     const keyPressed = event.key;
                     if (['1', '2', '3', '4'].includes(keyPressed)) {
@@ -152,7 +152,7 @@
                         document.removeEventListener('keydown', this);
                     }
                 });
-            });
+            }); */
         }
 
         function removeQuotes(string) {
