@@ -17,10 +17,10 @@ fetch(`https://the-trivia-api.com/api/questions?limit=10`)
             res.sendFile(path.resolve("public/quiz/html/quiz.html"))
         });
 
-        app.get("/quiz/:id", (req, res) => {
+        /* app.get("/quiz/:id", (req, res) => {
             const quizToGet = result[req.params.id];
             res.send(quizToGet);
-        })
+        }) */
     })
 
 const PORT = 8080;
