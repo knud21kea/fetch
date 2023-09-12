@@ -1,6 +1,4 @@
-// Trivia
-
-import fetch from 'node-fetch'; // just to try a server side fetch in node
+import fetch from 'node-fetch'; // just to try a server-side fetch in Node.js
 import express from 'express';
 import path from "path";
 
@@ -22,6 +20,9 @@ fetch(`https://the-trivia-api.com/api/questions?limit=10`)
             res.send(quizToGet);
         })
     })
+    .catch((error) => {
+        console.error("Error fetching trivia data:", error);
+    });
 
 const PORT = 8080;
 app.listen(PORT, (error) => {
