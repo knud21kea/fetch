@@ -65,7 +65,7 @@
         <div id="qustionNumber"></div>
         <div id="countdownTimer"></div>
         <div id="quizBody"></div>
-        <div id="checkAnswer"></div>        
+        <div id="checkAnswer"></div>
     </div>
 
     <script>
@@ -138,6 +138,9 @@
                         }
                     })
                 })
+                .catch((error) => {
+                    console.error("Error fetching quiz data:", error);
+                });
         };
 
         function waitForKeyPress() {
@@ -146,6 +149,10 @@
                     const keyPressed = event.key;
                     if (['1', '2', '3', '4'].includes(keyPressed)) {
                         resolve(keyPressed);
+                        document.removeEventListener('keydown', this);
+                    } else {
+                        // Handle unexpected key presses
+                        reject(new Error("Invalid key pressed"));
                         document.removeEventListener('keydown', this);
                     }
                 });
